@@ -1,27 +1,44 @@
-var num1;
-var num2;
+//Variable declaration
+var coinFlip; 
+var playersChoice; 
+var isHeads;
+var userChoice;
 
-num1 = window.prompt("Enter the first number");
-num1 = parseInt(num1);
+const THRESHOLD = 5;
 
-num2 = window.prompt("Enter the second number");
-num2 = parseInt(num2);
+//Random number generation
+coinFlip  = Math.floor(Math.random() * 10);
 
-if(isNaN(num1)){
-    document.write("First number you entered was not a valid number");
-}else if(isNaN(num2)){
-    document.write("Second number you entered was not a valid number");
-}
-else if(num1>num2){
-    document.write("First number was : " + num1.toString() + "<br>");
-    document.write("Second number was: " + num2.toString() + "<br>");
-    document.write("Large number was: " + num1.toString() + "<br>");
-}else if(num1<num2){
-    document.write("First number was : " + num1.toString() + "<br>");
-    document.write("Second number was: " + num2.toString() + "<br>");
-    document.write("Large number was: " + num2.toString() + "<br>");
+
+if(coinFlip>THRESHOLD){
+    isHeads = true;
 }else{
-    document.write("First number was : " + num1.toString() + "<br>");
-    document.write("Second number was: " + num2.toString() + "<br>");
-    document.write("Both numbers are equal" + "<br>");
+    isHeads = false;
+}
+
+while(true){
+    playersChoice = window.prompt("Enter Heads or Tails");
+    if(playersChoice.toLowerCase()=="heads"){
+        choice = true;
+        break;
+    }else if(playersChoice.toLowerCase()=="tails"){
+        choice = false;
+        break;
+    }else{
+        window.alert(" Invalid Input: Please try again");
+    }
+}
+
+if (isHeads) {
+    if (choice) {
+        window.alert("The flip was heads and you chose heads...you win!");
+    } else {
+        window.alert("The flip was heads but you chose tails...you lose!");
+    }
+} else {
+    if (choice) {
+        window.alert("The flip was tails but you chose heads...you lose!");
+    } else{
+        window.alert("The flip was tails and you chose tails...you win!");
+    }
 }
