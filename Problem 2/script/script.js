@@ -1,3 +1,4 @@
+/*eslint-env browser*/
 //Variable declaration
 var coinFlip; 
 var playersChoice; 
